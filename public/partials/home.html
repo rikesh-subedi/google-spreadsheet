@@ -1,0 +1,148 @@
+
+    <style>
+       .idea-box{
+            width: 300px;
+            height: 103px;
+            padding: 20px;
+            margin:20px;
+            border: 2px solid gray;
+            border-radius: 5px;
+            box-shadow: green;
+            box-shadow: 10px 10px 5px #888;
+       }
+        .flex-container {
+         display:flex;
+         flex-flow: row wrap;
+         justify-content: space-between;
+
+     }
+     .flex-item {
+        background: #ACB305;
+        color:#514D7E;
+        font-weight: bold;
+        font-size: 1em;
+     }
+       .list-slide-animation.ng-enter { 
+    -webkit-animation: enter 950ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation: enter 950ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    display: block;
+    position: relative;
+} 
+@-webkit-keyframes enter {
+    from {
+        opacity: 0;
+        right: -10px;
+    }
+    75% {
+        right: 15px;
+    }
+    to {
+        opacity: 1;
+        right: 0px;
+    }
+}
+@keyframes enter {
+    from {
+        opacity: 0;
+        right: -10px;
+    }
+    75% {
+        right: 15px;
+    }
+    to {
+        opacity: 1;
+        right: 0px;
+    }
+}
+ 
+.list-slide-animation.ng-leave { 
+    -webkit-animation: leave 950ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation: leave 950ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    display: block;
+    position: relative;
+} 
+@-webkit-keyframes leave {
+    to {
+        opacity: 0;
+        right: -10px
+    }
+    25% {
+        right: 15px;
+    }
+    from {
+        opacity: 1;
+        right: 0px;
+    }
+}
+@keyframes leave {
+    to {
+        opacity: 0;
+        right: -10px;
+    }
+    25% {
+        right: 15px;
+    }
+    from {
+        opacity: 1;
+        right: 0px;
+    }
+}
+     /* .list-slide-animation.ng-enter, 
+     .list-slide-animation.ng-leave
+     { 
+        -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+         -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+         -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+         -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+         transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+         position: relative;
+         display: block;
+         overflow: hidden;
+         text-overflow: clip;
+         white-space:nowrap;
+     } 
+     
+     .list-slide-animation.ng-enter.list-slide-animation.ng-enter-active, 
+     .list-slide-animation-leave {
+         opacity: 1;
+         left: 0;
+     
+         height: 46px;
+     }
+     
+     .list-slide-animation.ng-leave.list-slide-animation.ng-leave-active,
+     .list-slide-animation.ng-enter {
+         opacity: 0;
+         left:100%;
+         top: -50px;
+         height: 0px;
+     } */
+
+    </style>
+    <div>
+         <div >
+             <input type='text' ng-model="idea_statement" placeholder="idea"></input>
+             <input type='text' ng-model="idea_details" placeholder="details"></input>
+             <input type='text' ng-model="idea_initiator" placeholder="initiator"></input>
+             <button ng-click='postData()'>submit idea</button>
+         </div>
+         <div class='flex-container'>
+             <div ng-repeat = "idea in ideas" ng-if="$index > 1" class='idea-box flex-item list-slide-animation'>
+             <div><a>E</a> | <a>X</a> </div>
+             <div class='idea-top'>
+                 <span class='idea-statement'> {{idea[1]}} </span>
+                 <span class='idea-initiator'> By: {{idea[3]}} </span>
+             </div>
+             <div class='idea-bottom'> 
+                <div> hide </div>
+                <div class='idea-details'>
+                    
+                    <div>{{idea[2]}} </div>
+                </div>
+
+             </div>
+         </div> 
+         </div>
+           
+         
+    </div>
